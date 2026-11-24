@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IRL Kickback '27</title>
+<meta name="description" content="IRL Kickback is a laid-back weekend where a small group of IRL streamers take over a private cabin or lodge, hang out and stream together.">
+<link rel="icon" href="logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Work+Sans:wght@400;600&display=swap">
+<style>
+/* VOICE: friendly, outdoorsy, a little bit "live on air" - the weekend poster for a streamer retreat.
+   IDEA: an event pass / campfire-night poster, lifted straight from the IRL Kickback badge.
+   PICTURE: the badge itself, big, glowing over a night-sky band with a pine-tree horizon.
+   COLOUR and TYPE: badge navy, royal blue and gold; cream paper body. Oswald (like the badge lettering) + Work Sans.
+   LAYOUT: hero band, sticky section links, then one calm column of sections; schedule as hanging times with day tabs. */
+:root{color-scheme:light dark;
+  --bg:light-dark(#f7f3ea,#0a1630);--card:light-dark(#ffffff,#122247);--ink:light-dark(#14213d,#eef2fb);
+  --soft:light-dark(#4a5571,#b9c3dc);--line:light-dark(#e3dccb,#24365f);
+  --navy:#0b1a3c;--blue:#1f5fd6;--sky:#3fa9f5;--gold:#f2b43c;--goldink:light-dark(#8a5a00,#f2b43c)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.glow{animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.6 "Work Sans",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Oswald,Impact,sans-serif;font-weight:700;line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:clamp(30px,4.5vw,44px);margin-bottom:14px}
+h3{font-size:21px;font-weight:500;margin:22px 0 8px}
+p{margin:0 0 12px;max-width:68ch}
+a{color:var(--blue)}
+.wrap{max-width:980px;margin:0 auto}
+.band{padding:clamp(36px,5vw,72px) max(5vw,18px)}
+
+/* hero */
+.hero{background:radial-gradient(120% 90% at 70% 10%,#2a5bd0 0%,#13306f 38%,var(--navy) 72%);color:#fff;position:relative;overflow:hidden;padding-bottom:0}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:center;position:relative;z-index:1}
+.hero h1{font-size:clamp(46px,8vw,86px);letter-spacing:.5px}
+.hero h1 span{color:var(--gold)}
+.hero .lead{font-size:clamp(17px,2vw,20px);color:#dbe6ff;margin:16px 0 22px;max-width:34ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;padding:0;list-style:none}
+.facts li{border:1px solid rgba(242,180,60,.6);color:#ffe3a6;border-radius:999px;padding:6px 14px;font-size:14.5px;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:12px;font-weight:600;text-decoration:none;font-size:16px}
+.btn.gold{background:var(--gold);color:#1a1405}.btn.gold:hover{background:#ffc75a}
+.btn.ghost{color:#fff;border:1.5px solid rgba(255,255,255,.55);margin-left:8px}.btn.ghost:hover{background:rgba(255,255,255,.1)}
+.badge{position:relative;justify-self:center;width:min(100%,430px);aspect-ratio:1}
+.badge img{position:relative;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45))}
+.glow{position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle,rgba(63,169,245,.55),transparent 65%);animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.08);opacity:.7}}
+.stars{position:absolute;inset:0;opacity:.55}
+.pines{display:block;width:100%;height:clamp(60px,9vw,110px);margin-top:clamp(20px,4vw,40px)}
+
+/* section links */
+nav{position:sticky;top:0;z-index:5;background:var(--navy);border-bottom:2px solid var(--gold)}
+nav .scroll{display:flex;gap:4px;overflow-x:auto;padding:0 max(5vw,12px);max-width:1080px;margin:0 auto;scrollbar-width:none}
+nav a{flex:none;color:#dbe6ff;text-decoration:none;padding:14px 12px;font-size:15px;font-weight:600}
+nav a:hover,nav a:focus-visible{color:var(--gold)}
+
+section+section{border-top:1px solid var(--line)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 28px}
+ul.ticks{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px}
+ul.ticks li{padding-left:30px;position:relative}
+ul.ticks li::before{content:"";position:absolute;left:4px;top:.55em;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px light-dark(#fbe9c4,#3a3220)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.note{color:var(--soft);font-size:15px}
+
+/* schedule */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 20px}
+.tabs button{font:600 16px "Work Sans",sans-serif;min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--navy);border-color:var(--navy);color:var(--gold)}
+.tabs button:focus-visible,.btn:focus-visible,nav a:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.day{list-style:none;margin:0;padding:0}
+.day li{display:grid;grid-template-columns:9.5em minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px dashed var(--line);align-items:baseline}
+.day time{font-family:Oswald,sans-serif;font-size:19px;color:var(--goldink);white-space:nowrap;text-align:right}
+.day strong{display:block;font-size:17px}
+.day span{color:var(--soft);font-size:15px}
+.day li.big strong{color:var(--blue)}
+
+/* menu */
+.menu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.menu .card h3{margin-top:0}
+.menu ul{margin:6px 0 0;padding-left:18px}
+.dinners{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
+.dinners .card{border-top:5px solid var(--gold)}
+.dinners small{display:block;color:var(--soft);font-size:14px;margin-top:8px}
+
+/* sign up */
+.signup{background:var(--navy);color:#eef2fb}
+.signup a{color:var(--gold)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:18px 0 0;display:grid;gap:14px}
+.steps li{counter-increment:s;position:relative;padding:16px 18px 16px 64px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#1a1405;font:700 18px/34px Oswald,sans-serif;text-align:center}
+.dl{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.dl .btn{background:#fff;color:var(--navy)}.dl .btn:hover{background:#ffe3a6}
+.totop{position:fixed;right:16px;bottom:16px;z-index:9;display:flex;align-items:center;gap:6px;min-height:48px;padding:0 18px;border-radius:999px;background:var(--gold);color:#1a1405;font:600 16px "Work Sans",sans-serif;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .2s}
+.totop.on{opacity:1;pointer-events:auto}
+.totop:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+footer{background:#06102a;color:#9fb0d6;text-align:center;padding:32px 18px;font-size:14.5px}
+footer img{width:84px;height:84px;display:block;margin:0 auto 10px}
+
+@media(max-width:760px){
+  .hero .wrap{grid-template-columns:1fr;text-align:center}
+  .hero .lead{margin-inline:auto}.facts{justify-content:center}
+  .badge{width:min(80%,340px);order:-1}
+  .grid2,.menu,.dinners{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .day li{grid-template-columns:1fr;gap:2px}.day time{text-align:left}
+  .btn.ghost{margin:10px 0 0}
+}
+</style>
+</head>
+<body>
+
+<header class="band hero" id="top">
+  <svg class="stars" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true">
+    <g fill="#fff">
+      <circle cx="80" cy="60" r="1.6"/><circle cx="210" cy="140" r="1.2"/><circle cx="330" cy="40" r="1.8"/>
+      <circle cx="460" cy="110" r="1.1"/><circle cx="560" cy="30" r="1.5"/><circle cx="690" cy="90" r="1.2"/>
+      <circle cx="820" cy="50" r="1.9"/><circle cx="930" cy="150" r="1.3"/><circle cx="140" cy="230" r="1"/>
+      <circle cx="400" cy="210" r="1.3"/><circle cx="760" cy="200" r="1"/><circle cx="880" cy="270" r="1.4"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div>
+      <h1>IRL Kickback <span>'27</span></h1>
+      <p class="lead">A laid-back weekend where a small group of IRL streamers take over a private cabin or lodge, hang out and stream together.</p>
+      <ul class="facts">
+        <li>Friday to Monday</li><li>Fall 2027</li><li>IN · IL · MI · WI</li><li>8 to 10 IRL streamers</li>
+      </ul>
+      <a class="btn gold" href="#signup">How to sign up</a><a class="btn ghost" href="#schedule">See the schedule</a>
+    </div>
+    <div class="badge"><div class="glow"></div><img src="logo.webp" alt="IRL Kickback '27 badge: Annual IRL Streamer Retreat, Est. 2027" width="560" height="558"></div>
+  </div>
+  <svg class="pines" viewBox="0 0 1200 110" preserveAspectRatio="none" aria-hidden="true">
+    <defs><path id="pine" d="M0 110 L22 40 L14 44 L30 0 L46 44 L38 40 L60 110 Z"/></defs>
+    <g fill="#081430">
+      <use href="#pine" x="0" transform="translate(0 20) scale(1 .8)"/><use href="#pine" x="70"/><use href="#pine" x="150" transform="translate(0 30) scale(1 .7)"/>
+      <use href="#pine" x="230"/><use href="#pine" x="330" transform="translate(0 25) scale(1 .75)"/><use href="#pine" x="420"/>
+      <use href="#pine" x="520" transform="translate(0 35) scale(1 .65)"/><use href="#pine" x="600"/><use href="#pine" x="700" transform="translate(0 20) scale(1 .8)"/>
+      <use href="#pine" x="790"/><use href="#pine" x="880" transform="translate(0 30) scale(1 .7)"/><use href="#pine" x="960"/>
+      <use href="#pine" x="1050" transform="translate(0 25) scale(1 .75)"/><use href="#pine" x="1130"/>
+      <rect x="0" y="100" width="1200" height="10"/>
+    </g>
+  </svg>
+</header>
+
+<nav aria-label="Sections"><div class="scroll">
+  <a href="#top">Top</a><a href="#about">About</a><a href="#where">When &amp; where</a><a href="#who">Who's coming</a><a href="#schedule">Schedule</a>
+  <a href="#menu">Menu</a><a href="#bring">What to bring</a><a href="#know">Good to know</a><a href="#watch">Watch along</a><a href="#signup">Sign up</a>
+</div></nav>
+
+<main>
+<section class="band" id="about"><div class="wrap">
+  <h2>What it's all about</h2>
+  <p>Think of it as a small, relaxed cousin of TwitchCon. No convention halls, no lines, no badges. Just friends under one roof with good food, a fire pit and IRL gear rolling.</p>
+  <p>Every day is packed with easygoing fun, but nothing that wears you out. Nobody has to leave the property all weekend.</p>
+</div></section>
+
+<section class="band" id="where"><div class="wrap">
+  <h2>When and where</h2>
+  <p>IRL Kickback '27 is a Friday-to-Monday weekend planned for fall 2027. The group will have a private cabin or lodge all to itself somewhere in Indiana, Illinois, Michigan or Wisconsin. Exact dates and location will be announced once the venue is booked.</p>
+  <h3>What to expect at the cabin or lodge</h3>
+  <ul class="ticks grid2">
+    <li>One building, so everyone eats, hangs out and IRL streams together</li>
+    <li>A private bedroom for every IRL streamer and their family guests</li>
+    <li>An outdoor fire pit for the nightly gatherings, plus a pool and hot tub if the selected venue has them</li>
+    <li>Golf carts and trails for exploring the property</li>
+    <li>Bag toss, darts and pool for some friendly competition</li>
+    <li>No other groups will be sharing the kitchen, gathering rooms or outdoor spaces</li>
+    <li>A pharmacy and an urgent care or hospital within a short drive, for peace of mind</li>
+    <li>A grocery or big-box store nearby, for anyone who wants to pick up their own snacks, drinks or supplies</li>
+  </ul>
+</div></section>
+
+<section class="band" id="who"><div class="wrap">
+  <h2>Who's coming</h2>
+  <p>It's small on purpose. Spots are reserved first come, first served, with room for 8 to 10 IRL streamers. Each streamer is welcome to bring up to two family guests, as long as everyone fits comfortably in the assigned room.</p>
+  <p>The group is a mix of IRL streamers from all walks of life, and the pace is relaxed and easygoing. Nobody's rushing anywhere, and everyone is welcome here, just as they are.</p>
+  <p>Every guest streamer gets their own private bedroom, to share only with their significant other or child. Rooms can't be shared with, or rented out to, anyone else, and only registered attendees may stay overnight.</p>
+</div></section>
+
+<section class="band" id="schedule"><div class="wrap">
+  <h2>The weekend</h2>
+  <p>Breakfast, an afternoon of easy games around the property, dinner together, then the fire pit or a large social area until people turn in.</p>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <ol class="day" id="day" aria-live="polite"></ol>
+  <p class="note" style="margin-top:14px"><strong>Evening Social</strong> each night means the fire pit or social area, the pool and hot tub if the venue has them, drinks, conversation, streaming and relaxing, for as late as you like.</p>
+  <p><a href="files/IRL_Kickback_27_Weekend_Schedule.pdf" target="_blank" rel="noopener">Download the schedule (PDF)</a></p>
+</div></section>
+
+<section class="band" id="menu"><div class="wrap">
+  <h2>The menu</h2>
+  <p>Breakfast, dinner and the afternoon snack are provided all weekend, made by our meal prep provider.</p>
+  <div class="menu">
+    <div class="card"><h3>Breakfast</h3><p class="note">Sat, Sun &amp; Mon, 9&ndash;11 AM. Same spread every morning.</p>
+      <ul><li>Scrambled eggs</li><li>Bacon and sausage</li><li>Pancakes, regular and sugar-free syrup</li><li>Biscuits and gravy</li><li>Oatmeal and Cheerios</li><li>Fruit and yogurt cups</li></ul>
+      <p class="note" style="margin-top:10px">White milk, chocolate milk, orange juice, coffee (regular and decaf)</p></div>
+    <div class="card"><h3>Afternoon snack</h3><p class="note">Sat &amp; Sun, 2:30&ndash;3:30 PM.</p>
+      <ul><li>Hot dogs and brats</li><li>Chili with beans</li><li>Chips</li><li>Nachos and cheese</li><li>Deviled eggs</li><li>Cream cheese rolls, with or without salsa</li></ul>
+      <p class="note" style="margin-top:10px">Canned soda, bottled water, bottled Gatorade</p></div>
+    <div class="card"><h3>Dessert &amp; drinks</h3><p class="note">With dinner every night.</p>
+      <ul><li>Fri &amp; Sat: apple pie and cheesecake</li><li>Sun: IRL Kickback '27 cake</li><li>Every night: ice cream cups in vanilla, chocolate and strawberry</li></ul>
+      <p class="note" style="margin-top:10px">Coffee (regular and decaf), water, soda, sweet or unsweetened tea</p></div>
+  </div>
+  <div class="dinners">
+    <div class="card"><h3 style="margin-top:0">Friday: Welcome Dinner</h3><p style="margin:0">BBQ pulled pork and chicken, mac and cheese, coleslaw, mixed vegetables, bread rolls</p></div>
+    <div class="card"><h3 style="margin-top:0">Saturday: Italian Night</h3><p style="margin:0">Mostaccioli (with meat and meatless), salad with ranch, French or Italian, green beans and corn, garlic bread</p></div>
+    <div class="card"><h3 style="margin-top:0">Sunday: Final Dinner</h3><p style="margin:0">Roast beef with gravy, or stuffed bell peppers (vegetarian), baked potatoes, green beans, rolls</p><small>Plus the IRL Kickback Awards</small></div>
+  </div>
+  <p class="note" style="margin-top:14px">Food allergies or dietary needs? List them on your sign-up form. The menu may change slightly based on the venue and our meal prep provider. <a href="files/IRL_Kickback_27_Menu.pdf" target="_blank" rel="noopener">Download the menu (PDF)</a></p>
+</div></section>
+
+<section class="band" id="bring"><div class="wrap">
+  <h2>What's included and what to bring</h2>
+  <p>Lodging, meals and golf carts are covered with your stay. A meal prep provider will handle the food, so no one has to cook unless they want to.</p>
+  <div class="grid2">
+    <div class="card"><h3 style="margin-top:0">Included</h3><ul class="ticks">
+      <li>A private bedroom for each IRL streamer and their family guests</li><li>Breakfast every morning</li><li>Afternoon snack Saturday and Sunday</li><li>Dinner every night</li><li>Golf carts, bag toss, dartboards and more</li></ul></div>
+    <div class="card"><h3 style="margin-top:0">Bring your own</h3><ul class="ticks">
+      <li>Your IRL streaming setup, plus a Starlink or other backup internet device</li><li>Alcoholic beverages, if you'd like some in the evenings (alcohol is not provided)</li><li>Bait and a fishing pole, if you like to fish</li></ul></div>
+  </div>
+</div></section>
+
+<section class="band" id="know"><div class="wrap">
+  <h2>Good to know</h2>
+  <ul class="ticks">
+    <li><strong>Age rule:</strong> No one under 18 may attend unless a parent or legal guardian is with them for the entire event.</li>
+    <li><strong>Getting there:</strong> Guests are responsible for their own transportation to and from the event, including the cost.</li>
+    <li><strong>Attend at your own risk:</strong> The IRL Kickback organizers are not responsible for any injury, illness, death, or loss or damage to property, whether at the event or while traveling to and from it.</li>
+    <li><strong>Pets:</strong> Most venues don't allow pets, so please leave them at home. Trained service dogs, like guide dogs, are always welcome. Just let us know on your sign-up form. Because of venue rules, we can't make room for emotional support or companion animals.</li>
+    <li><strong>Smoking and vaping:</strong> Outside only.</li>
+    <li><strong>Your privacy:</strong> The venue needs everyone's legal name, which is shared only with the venue owners. At the event, everyone goes by their streamer name.</li>
+  </ul>
+</div></section>
+
+<section class="band" id="watch"><div class="wrap">
+  <h2>Watch along</h2>
+  <p>Every IRL streamer will be live during the weekend, so viewers can hop between channels and catch the same moments from different angles: the drive in, the golf cart hunts, the tournaments and the late nights by the fire pit.</p>
+  <p class="note">The list of IRL streamers and their channels will be shared closer to the event.</p>
+</div></section>
+
+<section class="band signup" id="signup"><div class="wrap">
+  <h2>How to sign up</h2>
+  <p>Spots go first come, first served. Your spot is held once your form is in, every adult has signed the waiver, and your room payment is received.</p>
+  <ol class="steps">
+    <li><strong>Download and print both forms.</strong>
+      <div class="dl"><a class="btn" href="files/IRL_Kickback_27_Sign-Up_Form.pdf" target="_blank" rel="noopener">Sign-up form (PDF)</a><a class="btn" href="files/IRL_Kickback_27_Waiver.pdf" target="_blank" rel="noopener">Waiver (PDF)</a></div></li>
+    <li><strong>Fill them out and sign.</strong> Every adult signs the waiver. A parent or legal guardian signs for anyone under 18.</li>
+    <li><strong>Email a clear photo or scan of every page.</strong> Send them to <a href="mailto:info@irlkickback.com">info@irlkickback.com</a>.</li>
+    <li><strong>Pay for your room</strong> by PayPal, Zelle or Cash App. Room cost and the payment deadline will be announced once the venue is booked.</li>
+  </ol>
+  <p style="margin-top:18px">Once all spots are filled, new sign-ups go on a waitlist. If a spot opens up, or enough people sign up for a bigger venue, we'll reach out in the order people signed up.</p>
+  <p><a href="files/IRL_Kickback_27_Event_Description.pdf" target="_blank" rel="noopener">Download the full event description (PDF)</a></p>
+</div></section>
+</main>
+
+<a class="totop" id="totop" href="#top">&#8593; Back to top</a>
+<footer>
+  <img src="logo.webp" alt="" width="84" height="84">
+  IRL Kickback '27 · Annual IRL Streamer Retreat · Est. 2027
+</footer>
+
+<script>
+{
+  const days = {
+    Friday: [["12–4 PM","Arrival, unpack and check-in"],["4–6 PM","IRL Content Creation & Social Time"],["6–8 PM","Welcome Dinner",1],["8 PM–late","Evening Social"]],
+    Saturday: [["9–11 AM","Breakfast"],["11 AM–12 PM","Get ready, at your leisure"],["12–1 PM","Putting Challenge",1],["1–2:30 PM","Golf Cart Nature Hunt",1],["2:30–3:30 PM","Afternoon snack"],["3:30–4:30 PM","IRL Gear Show-and-Tell","Show off your setup and share streamer tips",1],["4:30–6 PM","Bag Toss Tournament",1],["6–8 PM","Dinner"],["8 PM–late","Evening Social"]],
+    Sunday: [["9–11 AM","Breakfast"],["11 AM–12 PM","Get ready, at your leisure"],["12–1:30 PM","Darts & Pool Tournament",1],["1:30–2:30 PM","Group Collab Stream & Group Photo",1],["2:30–3:30 PM","Afternoon snack"],["3:30–5 PM","Golf Cart Photo Hunt",1],["5–6 PM","IRL Content Creation & Social Time"],["6–8 PM","Final Dinner & IRL Kickback Awards",1],["8 PM–late","Evening Social"]],
+    Monday: [["9–11 AM","Farewell Breakfast"],["11 AM–12 PM","Pack and depart"],["12 PM","Official checkout"]]
+  };
+  const tabs = document.getElementById('tabs'), list = document.getElementById('day');
+  const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  const show = name => {
+    for (const b of tabs.children) b.setAttribute('aria-selected', b.dataset.d === name);
+    list.innerHTML = days[name].map(r => {
+      const big = r[r.length-1] === 1, sub = typeof r[2] === 'string' ? `<span>${esc(r[2])}</span>` : '';
+      return `<li class="${big?'big':''}"><time>${esc(r[0])}</time><div><strong>${esc(r[1])}</strong>${sub}</div></li>`;
+    }).join('');
+    try { localStorage.setItem('irlk-day', name); } catch (e) {}
+  };
+  tabs.innerHTML = Object.keys(days).map(d => `<button role="tab" data-d="${d}" aria-selected="false">${d}</button>`).join('');
+  tabs.addEventListener('click', e => { const b = e.target.closest('button'); if (b) show(b.dataset.d); });
+  let start = 'Friday';
+  try { const s = localStorage.getItem('irlk-day'); if (days[s]) start = s; } catch (e) {}
+  show(start);
+  const tt = document.getElementById('totop');
+  const onScroll = () => tt.classList.toggle('on', window.scrollY > 500);
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  tt.addEventListener('click', e => { e.preventDefault(); window.scrollTo({top:0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); });
+}
+</script>
+</body>
+</html>
